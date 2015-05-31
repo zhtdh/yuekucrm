@@ -14,14 +14,22 @@
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    {% for showCase in showCaseList %}
-                    <div class="item {% if forloop.first %} active {% endif %}">
-                        <a href="{{ showCase.link }}"><img src="{{ showCase.exlink }}" style="width:970px;height:300px;"> </a>
-                        <div class="carousel-caption">
-                            {{ showCase.title }}
-                        </div>
-                    </div>
-                    {% endfor %}
+                    <?php
+                        $showCase = [
+                            1 => [ link=>"/", src=>get_bloginfo('template_url')."/img/top1.jpg", title=>"top1" ],
+                            2 => [ link=>"/", src=>get_bloginfo('template_url')."/img/top2.jpg", title=>"top2" ],
+                            3 => [ link=>"/", src=>get_bloginfo('template_url')."/img/top3.jpg", title=>"top3" ],
+                            4 => [ link=>"/", src=>get_bloginfo('template_url')."/img/top4.jpg", title=>"top4" ]
+                        ];
+                    ?>
+                    <?php foreach($showCase as $iKey=>$iValue) : ?>
+<div class="item <?php if ($iKey==1) echo 'active'; ?>" >
+    <a href="<?php echo $iValue["link"] ?>"><img src="<?php echo $iValue["src"] ?>" style="width:970px;height:300px;"> </a>
+    <div class="carousel-caption">
+        <?php echo $iValue["title"] ?>
+    </div>
+</div>
+                    <?php endforeach ?>
                 </div>
 
                 <!-- Controls -->

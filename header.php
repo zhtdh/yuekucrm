@@ -88,6 +88,3 @@ foreach ($menu_items as $iFor){
             </div>
         </nav>
     </div> <!-- nva -->
-
-<?php
-    var_dump($cacheMenu);
